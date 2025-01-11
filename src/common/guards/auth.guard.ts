@@ -19,13 +19,13 @@ export class AuthGuard implements CanActivate {
       }
     };
 
-    if (!authorizationHeader) throw new GeneralException(401, '4011', 'missing authorization header');
+    if (!authorizationHeader) throw new GeneralException(401, '3011', 'missing authorization header');
 
     const [scheme, token] = authorizationHeader.split(' ');
 
-    if (scheme !== 'Bearer') throw new GeneralException(401, '4012', 'incorrect token scheme');
+    if (scheme !== 'Bearer') throw new GeneralException(401, '3012', 'incorrect token scheme');
 
-    if (!validateUser(token as string)) throw new GeneralException(401, '4013', 'meep');
+    if (!validateUser(token as string)) throw new GeneralException(403, '3013', 'invalid token');
 
     return true;
   }

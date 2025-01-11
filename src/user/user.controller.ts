@@ -20,7 +20,7 @@ export class UserController {
       }
       return usersData;
     } catch {
-      throw new GeneralException(500, '5111', 'failed to get users');
+      throw new GeneralException(500, '4111', 'failed to get users');
     }
   }
 
@@ -32,7 +32,7 @@ export class UserController {
       const { isActive, deleted, password, ...data } = user;
       return data;
     } catch {
-      throw new GeneralException(500, '5121', 'failed to get user');
+      throw new GeneralException(500, '4121', 'failed to get user');
     }
   }
 
@@ -43,7 +43,7 @@ export class UserController {
       const { isActive, deleted, password, ...data } = await this.userRepository.save(user);
       return data;
     } catch {
-      throw new GeneralException(500, '5131', 'failed to create user');
+      throw new GeneralException(500, '4131', 'failed to create user');
     }
   }
 }

@@ -14,9 +14,12 @@ export class AuthController {
 
   @Post('login')
   async loginUser(@Body() loginDto: LoginDto): Promise<{ accessToken: string }> {
+    if (!loginDto.username) throw new GeneralException(400, '4211', 'username required');
+    if (!loginDto.password) throw new GeneralException(400, '4212', 'password required');
+
     const user = await this.userRepository.findOneBy({ username: loginDto.username, password: loginDto.password });
 
-    if (!user) throw new GeneralException(401, '4121', 'invalid username or password');
+    if (!user) throw new GeneralException(403, '4213', 'invalid username or password');
 
     const { isActive, deleted, password, ...data } = user;
 

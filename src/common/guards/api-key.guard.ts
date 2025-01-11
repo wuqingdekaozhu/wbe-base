@@ -9,9 +9,9 @@ export class ApiKeyGuard implements CanActivate {
     const apiKey = request.headers['x-api-key'];
 
     if (!apiKey) {
-      throw new GeneralException(403, '4021', 'missing api key');
+      throw new GeneralException(400, '1011', 'missing api key');
     } else if (apiKey !== API_KEY) {
-      throw new GeneralException(403, '4022', 'invalid api key');
+      throw new GeneralException(401, '1012', 'invalid api key');
     }
 
     return true;

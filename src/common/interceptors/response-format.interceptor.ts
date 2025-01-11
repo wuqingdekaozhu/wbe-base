@@ -12,7 +12,7 @@ export class ResponseFormatInterceptor implements NestInterceptor {
       map((data) => {
         return {
           success: true,
-          code: '000000',
+          code: '0000',
           message: 'success',
           data: data,
         };

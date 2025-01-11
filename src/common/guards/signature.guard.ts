@@ -28,9 +28,9 @@ export class SignatureGuard implements CanActivate {
     if (request.method !== 'POST') return true;
 
     if (!signature) {
-      throw new GeneralException(403, '4031', 'missing signature');
+      throw new GeneralException(400, '2011', 'missing signature');
     } else if (!validateSignature()) {
-      throw new GeneralException(403, '4032', 'invalid signature');
+      throw new GeneralException(403, '2012', 'invalid signature');
     }
 
     return true;

@@ -5,6 +5,6 @@ import { GeneralException } from 'src/common/exceptions/exception';
 export class FallbackController {
   @All('*')
   handleAll(): void {
-    throw new GeneralException(404, '4011', 'not found');
+    throw new GeneralException(404, '9999', 'not found');
   }
 }
